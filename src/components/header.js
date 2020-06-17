@@ -3,6 +3,7 @@ import UoGsearch from '../components/UoGsearch';
 import GlobalMenu from '../components/globalMenu';
 import QuickLinks from '../components/quicklinks';
 import LocalMenu from '../components/localMenu';
+import "../styles/header.css";
 
 const Header = () => (
 <header id="top-header">
