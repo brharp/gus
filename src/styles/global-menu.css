@@ -1,0 +1,123 @@
+ul#main-menu li {
+	border-bottom: 1px solid #ccc;
+}
+ul#main-menu li:last-child {
+	border-bottom: none;
+}
+ul#main-menu li.menu-item a {
+	padding: 0.8rem;
+    font-size: 1.5rem;
+    display: block;
+    font-weight: 700;
+    text-align: left;
+    width: 100%;
+    color: #000;
+}
+ul#main-menu li.menu-item a:hover,
+ul#main-menu li.menu-item a:focus,
+ul#main-menu li.menu-item a:active {
+    color: #000;
+	background: #F2F2F2;
+}
+ul#main-menu ul.dropdown-menu li {
+	border-bottom: none;
+}
+ul#main-menu ul.dropdown-menu a {
+    padding: 0.8rem;
+    font-size: 1.5rem;
+    display: block;
+    font-weight: normal;
+    text-align: left;
+    width: 100%;
+    color: #000;
+}
+ul#main-menu ul.dropdown-menu a:hover, 
+ul#main-menu ul.dropdown-menu a:focus,
+ul#main-menu ul.dropdown-menu a:active {
+    background: #d5d5d5;
+}
+
+/* Reposition and resize menu on widescreen displays */
+@media (min-width: 900px) 
+{
+	div#allNavWrapper.collapse {
+		display: flex;
+		justify-content: flex-end;
+		border: none;
+		position: relative;
+		top: 0;
+		padding: 0;
+		width: 100%;
+		background: #C20430;
+	}
+/* 	nav#globalMenuWrapper {
+		width: 100%;
+	} */
+	ul#main-menu ul.dropdown-menu a {
+		color: #333 !important;
+		text-align: left;
+		padding: 0;
+		font-weight: 400;
+		background: #eee;
+		padding: 1rem 1rem 1rem 2rem;
+		transition: all 0.25s;
+	}
+	button#mainMenuHamburger {
+		display: none;
+	}
+	ul#main-menu {
+		transition: all 0.25s ease-in-out;
+		height: 9rem;
+		animation-delay: 3s;
+		display: flex;
+		flex-direction: row;
+		height: 9rem;
+		margin-bottom: 0;
+		z-index: 15;
+		padding: 0;
+		margin: 0;
+	}
+	ul#main-menu li.menu-item {
+		display: inline-block;
+		vertical-align: middle;
+		transform: perspective(0.1rem) translateZ(0);
+		box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0);
+		/* position: relative; */
+		width: 10rem;
+		background: #C20430;
+		transition-property: color;
+		transition-duration: 0.15s;
+	}
+	ul#main-menu li.menu-item a {
+		white-space: normal !important;
+		text-align: center;
+		color: #eee;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		padding: 2rem 1.5rem 3rem;
+		display: block;
+		font-weight: 700;
+		transition: color 0.25s ease-out;
+	}
+	ul#main-menu li.menu-item.dropdown > a::after {
+		content: "";
+		font-family: "uofgicons";
+		font-weight: 400;
+		color: #FFC72A;
+		display: block;
+		text-align: center;
+		border: none;
+		height: 1.5rem;
+	}
+	ul#main-menu li.menu-item a:hover,
+	ul#main-menu li.menu-item a:focus,
+	ul#main-menu li.menu-item a:active {
+		color: #000;
+		background: #FFC72A;
+	}
+	ul#main-menu li.menu-item.dropdown > a:hover:after,
+	ul#main-menu li.menu-item.dropdown > a:focus:after,
+	ul#main-menu li.menu-item.dropdown > a:active:after {
+		color: #000;
+	}
+}

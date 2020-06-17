@@ -1,0 +1,50 @@
+#searchTest .form-control {
+    border-radius: 0;
+    background: #f5f6fa;
+    border: 1px solid #ccc;
+    width: 85%;
+    font-size: 1.5rem;
+    padding: 0.375rem 0.75rem;
+}
+#searchTest .btn-default {
+    background: #666;
+    color: #fff;
+    border: 0;
+    border-radius: 0;
+    padding: 0.25rem;
+    width: 4.25rem;
+    height: 3.25rem;
+    z-index: 5;
+}
+
+/* Reposition and resize Search bar on widescreen displays */
+@media (min-width: 900px) 
+{
+	#searchTest.collapse {
+		display: block;
+		top: -30px;
+		right: 10rem;
+		width: 25rem;
+		height: 3rem;
+		padding: 0;
+		margin: 0;
+		border: none;
+	}
+	#searchTest h4 {
+		display: none;
+	}
+	#searchTest .form-control {
+		border: none;
+		height: 3rem;
+		width: 22rem;
+	}
+	button#searchButton {
+		display: none;
+	}
+	#searchTest .btn-default {
+		margin: 0;
+		padding: 0;
+		height: 3rem;
+		width: 3rem;
+	}
+}
