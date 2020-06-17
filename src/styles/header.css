@@ -1,0 +1,82 @@
+h1.logo img { opacity: 1 !important; }
+
+#top-header {
+	background: #666;
+}
+#top-header button.toggler {
+	opacity: 1 !important;
+	visibility: visible !important;
+}
+#top-header button.toggler i:before {
+    color: #fff;
+    height: 2rem;
+    width: 2rem;
+    font-size: 2rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+#search-menu-toggles {
+	float: right;
+}
+button#searchButton {
+    right: 5.5rem;
+	width: 5.5rem;
+    background-color: transparent;
+    border: 0;
+    padding: 0 0.75rem;
+}
+button#searchButton,
+button#mainMenuHamburger {
+    color: #fff;
+	height: 5rem;
+	width: 5rem;
+	font-size: 1rem;
+	line-height: 1;	
+}
+i.fa-bars {
+	display: block;
+}
+button#searchButton.toggler[aria-expanded=true]::after,
+button#mainMenuHamburger.toggler[aria-expanded=true]::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-left-width: 2.5rem;
+    border-right-width: 2.5rem;
+    border-top: 1rem solid #C20430;
+	position: absolute;
+	top: 5rem;
+    z-index: 21;
+    -webkit-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+button#searchButton.toggler[aria-expanded=true]::after {	    
+    right: 5rem;
+}
+button#mainMenuHamburger.toggler[aria-expanded=true]::after {
+    right: 0;
+}
+
+#searchWrapper,
+#allNavWrapper {
+	background: #fff;
+	position: absolute;
+	width: 30rem;
+	top: 5rem;
+	right: 0;
+	border: 1px solid #ccc;
+	padding: 1rem;
+}
+
+#allNavWrapper hr {
+    overflow: visible;
+    border: 0;
+    height: 3px;
+    margin: 1.5rem 0;
+    background: -webkit-gradient(linear,left top,right top,from(#c20430),color-stop(25%,#c20430),color-stop(25%,#ffc72a),color-stop(50%,#ffc72a),color-stop(50%,#000),color-stop(75%,#000),color-stop(75%,#69a3b9),to(#69a3b9));
+    background: -o-linear-gradient(left,#c20430 0%,#c20430 25%,#ffc72a 25%,#ffc72a 50%,#000 50%,#000 75%,#69a3b9 75%,#69a3b9 100%);
+    background: linear-gradient(to right,#c20430 0%,#c20430 25%,#ffc72a 25%,#ffc72a 50%,#000 50%,#000 75%,#69a3b9 75%,#69a3b9 100%);
+}
