@@ -1,4 +1,4 @@
-#searchTest .form-control {
+#searchWrapper .form-control {
     border-radius: 0;
     background: #f5f6fa;
     border: 1px solid #ccc;
@@ -6,7 +6,7 @@
     font-size: 1.5rem;
     padding: 0.375rem 0.75rem;
 }
-#searchTest .btn-default {
+#searchWrapper .btn-default {
     background: #666;
     color: #fff;
     border: 0;
@@ -20,7 +20,7 @@
 /* Reposition and resize Search bar on widescreen displays */
 @media (min-width: 900px) 
 {
-	#searchTest.collapse {
+	#searchWrapper.collapse {
 		display: block;
 		top: -30px;
 		right: 10rem;
@@ -30,10 +30,10 @@
 		margin: 0;
 		border: none;
 	}
-	#searchTest h4 {
+	#searchWrapper h4 {
 		display: none;
 	}
-	#searchTest .form-control {
+	#searchWrapper .form-control {
 		border: none;
 		height: 3rem;
 		width: 22rem;
@@ -41,7 +41,7 @@
 	button#searchButton {
 		display: none;
 	}
-	#searchTest .btn-default {
+	#searchWrapper .btn-default {
 		margin: 0;
 		padding: 0;
 		height: 3rem;

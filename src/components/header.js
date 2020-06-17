@@ -2,6 +2,7 @@ import React from 'react';
 import UoGsearch from '../components/UoGsearch';
 import GlobalMenu from '../components/globalMenu';
 import QuickLinks from '../components/quicklinks';
+import LocalMenu from '../components/localMenu';
 
 const Header = () => (
 <header id="top-header">
@@ -36,7 +37,7 @@ const Header = () => (
 						<div id="allNavWrapper" className="collapse navbar-collapse" data-parent="#searchMenuArea">
 							<GlobalMenu />
 							<hr />
-
+							<LocalMenu />
 							<hr />
 							<QuickLinks />
 						</div>
