@@ -26,7 +26,7 @@ const Header = () => (
 				<div className="row">
 					<div id="searchMenuArea" className="accordion offset-sm-6 col-sm-6">
 						<div id="search-menu-toggles">
-							<button className="search-toggler toggler" type="button" data-toggle="collapse" data-target="#searchTest" aria-expanded="false" aria-label="Toggle search" id="searchButton">
+							<button className="search-toggler toggler" type="button" data-toggle="collapse" data-target="#searchWrapper" aria-expanded="false" aria-label="Toggle search" id="searchButton">
 								<i className="fa fa-search"></i>Search
 							</button>
 							<button className="navbar-toggler toggler" type="button" data-toggle="collapse" data-target="#allNavWrapper" aria-controls="global-nav" aria-expanded="false" aria-label="Toggle navigation" id="mainMenuHamburger">
