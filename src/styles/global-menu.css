@@ -1,5 +1,11 @@
+ul#main-menu {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
 ul#main-menu li {
 	border-bottom: 1px solid #ccc;
+	list-style-type: none;
 }
 ul#main-menu li:last-child {
 	border-bottom: none;
@@ -19,8 +25,28 @@ ul#main-menu li.menu-item a:active {
     color: #000;
 	background: #F2F2F2;
 }
+ul#main-menu li.menu-item.dropdown > a::after {
+    content: "";
+    font-family: "uofgicons";
+    font-weight: 900;
+    color: #C20430;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    text-align: center;
+    border: none;
+    width: 2rem;
+    height: 1.5rem;
+}
+ul#main-menu ul.dropdown-menu {
+	position: static;
+	float: none;
+	border: none;
+}
+
 ul#main-menu ul.dropdown-menu li {
 	border-bottom: none;
+	position: relative;
 }
 ul#main-menu ul.dropdown-menu a {
     padding: 0.8rem;
@@ -34,7 +60,18 @@ ul#main-menu ul.dropdown-menu a {
 ul#main-menu ul.dropdown-menu a:hover, 
 ul#main-menu ul.dropdown-menu a:focus,
 ul#main-menu ul.dropdown-menu a:active {
-    background: #d5d5d5;
+    background: ##F2F2F2;
+}
+
+ul#main-menu ul.dropdown-menu a::before {
+    content: "";
+    font-family: "uofgicons";
+    font-weight: 900;
+	font-size: 1.2rem;
+    color: #FFC72A;
+	display: block;
+	float: left;
+	width: 1.5rem;
 }
 
 /* Reposition and resize menu on widescreen displays */
@@ -96,9 +133,10 @@ ul#main-menu ul.dropdown-menu a:active {
 		font-weight: 400;
 		color: #FFC72A;
 		display: block;
-		text-align: center;
 		border: none;
 		height: 1.5rem;
+		position: static;
+		margin: 0 auto;
 	}
 	ul#main-menu li.menu-item a:hover,
 	ul#main-menu li.menu-item a:focus,
@@ -110,17 +148,6 @@ ul#main-menu ul.dropdown-menu a:active {
 	ul#main-menu li.menu-item.dropdown > a:focus:after,
 	ul#main-menu li.menu-item.dropdown > a:active:after {
 		color: #C20430;
-	}
-	
-	ul#main-menu ul.dropdown-menu a {
-		color: #333 !important;
-		text-align: left;
-		padding: 0;
-		font-weight: 400;
-		background: #eee;
-		padding: 1rem 1rem 1rem 2rem;
-		transition: all 0.25s;
-		position: relative; /* needed to ensure all the arrow-bullets appear in the correct place */
 	}
 	/* Submenus of Global Menu */
 	ul#main-menu ul.dropdown-menu.show {
@@ -140,6 +167,16 @@ ul#main-menu ul.dropdown-menu a:active {
 		padding: 0;
 		display: block;
 	}
+	ul#main-menu ul.dropdown-menu a {
+		color: #333 !important;
+		text-align: left;
+		padding: 0;
+		font-weight: 400;
+		background: #eee;
+		padding: 1rem 1rem 1rem 2rem;
+		transition: all 0.25s;
+		position: relative; /* needed to ensure all the arrow-bullets appear in the correct place */
+	}	
 	ul#main-menu ul.dropdown-menu a::before {
 		content: "";
 		font-family: "uofgicons";
