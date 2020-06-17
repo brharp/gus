@@ -1,13 +1,63 @@
 #localMenu ul.nav {
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
     justify-content: flex-end;
+}
+
+/* Reposition and resize menu on widescreen displays */
+@media (min-width: 900px) 
+{
+	#localMenu ul.nav {
+		position: absolute;
+		top: 9rem;
+		right: 0;
+		background: transparent;
+		margin: 0;
+		padding: 0;
+		z-index: 2;
+	}	
+	#localMenu ul.nav li {
+		line-height: 3rem;
+		position: relative;
+		list-style: none;
+	}
+	#localMenu ul.nav li a {
+		line-height: 3rem;
+		display: inline-block;
+		padding: 0 0.75rem;
+		margin: 0;
+		transition: all 0.25s ease-in-out;
+		color: #fff;
+		font-size: 1.4rem;
+	}
+	#localMenu ul.nav li a:hover,
+	#localMenu ul.nav li a[aria-expanded=true], 
+	#localMenu ul.nav li a:focus {
+		background: #f6b500;
+		color: #000 !important;
+		text-decoration: none;
+	}
+	
+	#localMenu ul.nav li ul.dropdown-menu.show, 
+	#localMenu ul.nav li ul.sub-menu.show {
+		position: absolute;
+		width: 25rem;
+		visibility: visible !important;
+		opacity: 1 !important;
+		border-radius: 0 0 0 0;
+		background: #333;
+		border: 0;
+		padding: 0;
+		transition: all 0.25s ease-out;
+		display: block;
+		top: 2.9rem;
+	}	
+	#localMenu ul.nav li ul.dropdown-menu li a, 
+	#localMenu ul.nav li ul.sub-menu li a {
+		width: 100%;
+		display: block;
+		line-height: 1.5;
+		padding: 0.5rem 1rem;
+	}
 }

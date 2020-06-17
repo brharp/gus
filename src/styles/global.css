@@ -2,6 +2,9 @@
 
 h1.logo img { opacity: 1 !important; }
 
+#top-header {
+	background: #666;
+}
 #top-header button.toggler {
 	opacity: 1 !important;
 	visibility: visible !important;
@@ -14,9 +17,6 @@ h1.logo img { opacity: 1 !important; }
     display: inline-block;
     margin-bottom: 0.5rem;
 }
-/* #top-header .offset-sm-6 {
-	border: 1px dotted white;
-} */
 
 #search-menu-toggles {
 	float: right;
@@ -62,7 +62,7 @@ button#mainMenuHamburger.toggler[aria-expanded=true]::after {
     right: 0;
 }
 
-#searchTest,
+#searchWrapper,
 #allNavWrapper {
 	background: #fff;
 	position: absolute;
