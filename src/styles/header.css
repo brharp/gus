@@ -80,3 +80,10 @@ button#mainMenuHamburger.toggler[aria-expanded=true]::after {
     background: -o-linear-gradient(left,#c20430 0%,#c20430 25%,#ffc72a 25%,#ffc72a 50%,#000 50%,#000 75%,#69a3b9 75%,#69a3b9 100%);
     background: linear-gradient(to right,#c20430 0%,#c20430 25%,#ffc72a 25%,#ffc72a 50%,#000 50%,#000 75%,#69a3b9 75%,#69a3b9 100%);
 }
+
+@media (min-width: 900px) 
+{
+	.menu-name {
+		display: none;
+	}
+}

@@ -1,13 +1,85 @@
 #localMenu ul.nav {
     width: 100%;
     display: block;
+	margin: 0;
+	padding: 0;
+}
+#localMenu ul.nav li {
+	border-bottom: 1px solid #ccc;
+	list-style-type: none;
+}
+#localMenu ul.nav li:last-child {
+	border-bottom: none;
+}
+#localMenu ul.nav li a {
+	padding: 0.8rem;
+    font-size: 1.5rem;
+    display: block;
+    font-weight: 700;
+    text-align: left;
+    width: 100%;
+    color: #000;
+}
+#localMenu li a:hover,
+#localMenu li a:focus,
+#localMenu li a:active {
+    color: #000;
+	background: #F2F2F2;
+}
+#localMenu li.dropdown > a::after {
+    content: "";
+    font-family: "uofgicons";
+    font-weight: 900;
+    color: #C20430;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    text-align: center;
+    border: none;
+    width: 2rem;
+    height: 1.5rem;
+}
+#localMenu ul.dropdown-menu {
+	position: static;
+	float: none;
+	border: none;
+}
+
+#localMenu ul.dropdown-menu li {
+	border-bottom: none;
+	position: relative;
+}
+#localMenu ul.dropdown-menu a {
+    padding: 0.8rem;
+    font-size: 1.5rem;
+    display: block;
+    font-weight: normal !important;
+    text-align: left;
+    width: 100%;
+    color: #000;
+}
+#localMenu ul.dropdown-menu a:hover, 
+#localMenu ul.dropdown-menu a:focus,
+#localMenu ul.dropdown-menu a:active {
+    background: ##F2F2F2;
+}
+
+#localMenu ul.dropdown-menu a::before {
+    content: "";
+    font-family: "uofgicons";
+    font-weight: 900;
+	font-size: 1.2rem;
+    color: #FFC72A;
+	display: block;
+	float: left;
+	width: 1.5rem;
 }
 
 /* Reposition and resize menu on widescreen displays */
 @media (min-width: 900px) 
 {
 	#localMenu ul.nav {
-		width: 100%;
+		/* width: 100%; */
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-end;
@@ -23,6 +95,7 @@
 		line-height: 3rem;
 		position: relative;
 		list-style: none;
+		border: none;
 	}
 	#localMenu ul.nav li a {
 		line-height: 3rem;
@@ -32,6 +105,7 @@
 		transition: all 0.25s ease-in-out;
 		color: #fff;
 		font-size: 1.4rem;
+		font-weight: normal !important;
 	}
 	#localMenu ul.nav li a:hover,
 	#localMenu ul.nav li a[aria-expanded=true], 
@@ -40,7 +114,24 @@
 		color: #000 !important;
 		text-decoration: none;
 	}
-	
+	#localMenu li.dropdown > a::after {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		position: static;
+		color: #fff;
+		margin-left: 0.3em;
+		vertical-align: middle;
+		content: "";
+		border-top: 0.3em solid;
+		border-right: 0.3em solid transparent;
+		border-left: 0.3em solid transparent;
+	}
+	#localMenu li.dropdown > a:hover:after,
+	#localMenu li.dropdown > a:focus:after,
+	#localMenu li.dropdown > a:active:after	{
+		color: #000;
+	}
 	#localMenu ul.nav li ul.dropdown-menu.show, 
 	#localMenu ul.nav li ul.sub-menu.show {
 		position: absolute;

@@ -4,6 +4,7 @@ import "../styles/global-menu.css"
 const GlobalMenu = () => (
 
 <nav id="globalMenuWrapper">
+{/*<h4 className="menu-name">U of G</h4>*/}
 <ul id="main-menu">
 	<li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-1 nav-item shutter-out-horizontal">
 		<a title="Future Students" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="header-menu-item-dropdown-26">Future Students</a>
