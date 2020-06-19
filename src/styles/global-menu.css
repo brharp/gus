@@ -90,6 +90,10 @@ ul#main-menu ul.dropdown-menu a::before {
 	button#mainMenuHamburger {
 		display: none;
 	}
+	nav#globalMenuWrapper {
+		position: relative;
+		left: 3rem;
+	}
 	ul#main-menu {
 		transition: all 0.25s ease-in-out;
 		height: 9rem;

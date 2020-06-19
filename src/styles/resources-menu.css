@@ -4,6 +4,30 @@
 #collapseResources.collapse {
 	display: block;
 }
+ul.resources-list {
+	list-style-type: none;
+	padding-left: 0;
+}
+ul.resources-list li a:before {
+	content: "";
+	font-family: "uofgicons";
+	font-weight: 900;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+	position: relative;
+	color: #FFC72A;
+	display: inline-block;
+	padding-right: 0.8rem;
+}
+ul.resources-list li a {
+	color: #000;
+	padding: 0.6rem;
+	display: block;
+}
+ul.resources-list li a:hover,
+ul.resources-list li a:focus {
+	background: #F2F2F2;
+}
 
 @media (min-width: 900px) 
 {
@@ -30,19 +54,37 @@
 		/* transition: all 0.25s ease-in-out; */
 		font-size: 1.5rem;
 	}
+	.resources-button[aria-expanded=true]::after {
+		content: "";
+		width: 0;
+		height: 0;
+		border: 0 solid transparent;
+		border-left-width: 2rem;
+		border-right-width: 2rem;
+		border-top: 1rem solid #FFC72A;
+		z-index: 21;
+		position: absolute;
+		top: 3rem;
+		left: 35%;
+		/* transition: all 0.25s ease-in-out; */
+	}
 	.resources-button i.fa-bars {
 		display: inline;
 	}
 	.resources-button:hover,
-	.resources-button:focus,
-	.resources-button:active {
+	.resources-button:focus {
 		background: #FFC72A;
 		color: #000;
+	}
+	.resources-button[aria-expanded=true] {
+		background: #FFC72A;
+		color: #000;
+		text-decoration: none;
+		transition: all 0.25s ease-in-out;
 	}
 	#collapseResources.collapse {
 		display: none;
 	}
-	
 	#collapseResources.show {
 		/* font-size: inherit; */
 		display: block;
@@ -57,24 +99,15 @@
 	}
 	ul.resources-list {
 		list-style-type: none;
-		padding-left: 1.1rem;
-	}
-	ul.resources-list li:before {
-		content: "";
-		font-family: "uofgicons";
-		font-weight: 900;
-		font-size: 1.5rem;
-		line-height: 1.5rem;
-		position: relative;
-		left: -1rem;
-		color: #FFC72A;
 	}
 	ul.resources-list li a {
 		color: #fff;
 		font-size: 1.5rem;
+		padding: 0.2rem;
 	}
 	ul.resources-list li a:hover,
 	ul.resources-list li a:focus {
 		text-decoration: underline;
+		background: transparent;
 	}
 }

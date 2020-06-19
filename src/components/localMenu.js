@@ -9,7 +9,7 @@ function LocalMenu() {
 		render={data => (
 		<nav id="localMenu" role="navigation" aria-label="Page Specific Menu">
 			<div className="container">
-				<h4 className="menu-name">{data.site.siteMetadata.title}</h4>
+				<h3 className="menu-name">{data.site.siteMetadata.title}</h3>
 				<ul className="nav navbar-nav navbar-right nav-clear" role="menu">
 					<li><a href="index" role="menuitem">Home</a></li>
 					<li className="dropdown" role="menuitem"><a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">The Event<span className="caret"></span></a>

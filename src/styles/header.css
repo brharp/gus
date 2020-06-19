@@ -74,14 +74,14 @@ button#mainMenuHamburger.toggler[aria-expanded=true]::after {
 	height: 95vh; /* if you set this to 100, it cuts the menu off */
 	overflow-y: scroll;
 }
-/* #allNavWrapper h3 {
-	margin: 0;
-} */
+#allNavWrapper h3 {
+	margin-top: 0;
+}
 #allNavWrapper hr {
     overflow: visible;
     border: 0;
     height: 3px;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 2rem 0;
     background: -webkit-gradient(linear,left top,right top,from(#c20430),color-stop(25%,#c20430),color-stop(25%,#ffc72a),color-stop(50%,#ffc72a),color-stop(50%,#000),color-stop(75%,#000),color-stop(75%,#69a3b9),to(#69a3b9));
     background: -o-linear-gradient(left,#c20430 0%,#c20430 25%,#ffc72a 25%,#ffc72a 50%,#000 50%,#000 75%,#69a3b9 75%,#69a3b9 100%);
     background: linear-gradient(to right,#c20430 0%,#c20430 25%,#ffc72a 25%,#ffc72a 50%,#000 50%,#000 75%,#69a3b9 75%,#69a3b9 100%);
