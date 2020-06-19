@@ -22,8 +22,8 @@
 {
 	#searchWrapper.collapse {
 		display: block;
-		top: -30px;
-		right: 10rem;
+		top: 0;
+		right: 11.5rem;
 		width: 25rem;
 		height: 3rem;
 		padding: 0;

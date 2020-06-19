@@ -2,8 +2,8 @@ import React from 'react'
 import "../styles/quicklinks.css"
 
 const QuickLinks = () => (
-<div id="quicklinksWrapper">	
-	<h4>Quick Links</h4>
+<div id="quicklinksWrapper" className="col-sm-12 clearfix">	
+	<h3>Quick Links</h3>
 	<ul id="quick-links" className="d-flex flex-wrap">
 		<li><a href="https://intranet.uoguelph.ca"><i className="icon-intranet"></i>Intranet</a></li>
 		<li><a href="https://mail.uoguelph.ca"><i className="icon-mail"></i>GryphMail</a></li>

@@ -1,8 +1,8 @@
 import React from 'react';
 import UoGsearch from '../components/UoGsearch';
 import GlobalMenu from '../components/globalMenu';
-import QuickLinks from '../components/quicklinks';
 import LocalMenu from '../components/localMenu';
+import ResourcesMenu from '../components/resourcesMenu';
 import "../styles/header.css";
 
 const Header = () => (
@@ -14,14 +14,14 @@ const Header = () => (
 			</a>
 		</h1>
 	</div>
-	{/* utility-bar is the top dark-grey area for search and Resources menu */}
+	{/* utility-bar is the top dark-grey area for search and Resources menu 
 	<div className="utility-bar">
 		<div className="container">
 			<nav className="utility-nav">
 			</nav>
 		</div>
-	</div> {/* end utility-bar */}
-	<div className="top-primary-nav-wrapper">
+	</div> end utility-bar 
+	<div className="top-primary-nav-wrapper">*/}
 		<div className="container">
 			<nav className="navbar navbar-default navbar-static-top" role="navigation">
 				<div className="row">
@@ -40,13 +40,13 @@ const Header = () => (
 							<hr />
 							<LocalMenu />
 							<hr />
-							<QuickLinks />
+							<ResourcesMenu />
 						</div>
 					</div>
 				</div>
 			</nav>
 		</div>
-	</div>
+		{/* </div> */}
 </header>
 )
 

@@ -82,7 +82,7 @@ ul#main-menu ul.dropdown-menu a::before {
 		justify-content: flex-end;
 		border: none;
 		position: relative;
-		top: 0;
+		top: 3rem;
 		padding: 0;
 		width: 100%;
 		background: #C20430;
@@ -166,6 +166,7 @@ ul#main-menu ul.dropdown-menu a::before {
 		width: 25rem;
 		padding: 0;
 		display: block;
+		position: absolute;
 	}
 	ul#main-menu ul.dropdown-menu a {
 		color: #333 !important;

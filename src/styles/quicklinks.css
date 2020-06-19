@@ -16,7 +16,9 @@ ul#quick-links li a {
 	display: block;
 	padding: 0.5rem;
 }
-ul#quick-links li a:hover {
+ul#quick-links li a:hover,
+ul#quick-links li a:focus,
+ul#quick-links li a:active {
 	background: #ccc;
 }
 ul#quick-links li a i {
@@ -27,8 +29,29 @@ ul#quick-links li a i {
 
 /* Reposition and resize Quick Links on widescreen displays */
 @media (min-width: 900px) 
-{
-	div#quicklinksWrapper {
-		display: none;
+{	
+	#quicklinksWrapper {
+		margin: 0 auto;
+	}
+	ul#quick-links {
+		margin-bottom: 0;
+	}
+	ul#quick-links li {
+		width: auto;
+	}
+	ul#quick-links li a {
+		font-size: 1.5rem;
+		font-weight: normal;
+		color: #fff;
+		display: block;
+		padding: 0.5rem 0.75rem;
+	}
+	ul#quick-links li a:hover,
+	ul#quick-links li a:focus,
+	ul#quick-links li a:active {
+		color: #000;
+	}
+	ul#quick-links li a i {
+		font-size: 4rem;
 	}
 }

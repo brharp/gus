@@ -2,7 +2,6 @@
 	display: none;
 }
 #collapseResources.collapse {
-	opacity: 1;
 	display: block;
 }
 
@@ -41,18 +40,18 @@
 		color: #000;
 	}
 	#collapseResources.collapse {
-		opacity: 0;
+		display: none;
 	}
 	
 	#collapseResources.show {
 		/* font-size: inherit; */
+		display: block;
 		position: absolute;
 		right: 0;
 		top: 3rem;
 		z-index: 16;
 		background: #222;
 		width: 70.5rem;
-		opacity: 1;
 		padding: 1.5rem 4rem;
 		/* transition: all 0.25s ease-in-out; */
 	}

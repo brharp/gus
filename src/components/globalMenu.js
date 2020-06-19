@@ -4,10 +4,9 @@ import "../styles/global-menu.css"
 const GlobalMenu = () => (
 
 <nav id="globalMenuWrapper">
-{/*<h4 className="menu-name">U of G</h4>*/}
 <ul id="main-menu">
 	<li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-1 nav-item shutter-out-horizontal">
-		<a title="Future Students" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="header-menu-item-dropdown-26">Future Students</a>
+		<a title="Future Students" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="header-menu-item-dropdown-26" role="button">Future Students</a>
 		<ul className="dropdown-menu" aria-labelledby="header-menu-item-dropdown-26" role="menu">
 			<li className="nav-item"><a title="Student Services" href="https://www.uoguelph.ca/students/" className="dropdown-item">Student Services</a></li>
 			<li className="nav-item"><a title="Admissions" href="https://admission.uoguelph.ca/" className="dropdown-item">Admissions</a></li>
