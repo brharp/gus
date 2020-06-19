@@ -36,6 +36,7 @@ button#mainMenuHamburger {
 button#mainMenuHamburger i.fa-bars {
 	display: block; /* make the menu icon appear above the word "Menu" */
 }
+/* The arrows that appear when Search or Menu are expanded */
 button#searchButton.toggler[aria-expanded=true]::after,
 button#mainMenuHamburger.toggler[aria-expanded=true]::after {
     content: "";
@@ -44,12 +45,11 @@ button#mainMenuHamburger.toggler[aria-expanded=true]::after {
     border: 0 solid transparent;
     border-left-width: 2.5rem;
     border-right-width: 2.5rem;
-    border-top: 1rem solid #C20430;
+    border-top: 1rem solid #c20430;
 	position: absolute;
 	top: 5rem;
     z-index: 21;
-    -webkit-transition: all 0.25s ease-in-out;
-    -o-transition: all 0.25s ease-in-out;
+
     transition: all 0.25s ease-in-out;
 }
 button#searchButton.toggler[aria-expanded=true]::after {	    
@@ -69,7 +69,7 @@ button#mainMenuHamburger.toggler[aria-expanded=true]::after {
 	padding: 1rem;
 }
 #allNavWrapper {
-	height: 95vh; /* if you set this to 100, it cuts the menu off */
+	height: 90vh; /* if you set this any higher, it cuts the menu off */
 	overflow-y: scroll;
 }
 #allNavWrapper h3 {
@@ -85,7 +85,45 @@ button#mainMenuHamburger.toggler[aria-expanded=true]::after {
     background: linear-gradient(to right,#c20430 0%,#c20430 25%,#ffc72a 25%,#ffc72a 50%,#000 50%,#000 75%,#69a3b9 75%,#69a3b9 100%);
 }
 
-@media (min-width: 900px) 
+/* Make UoG logo and Search/Menu buttons resize properly */
+@media (max-width: 991px) and (min-width:576px) 
+{
+	#top-header .navbar-brand {
+		width: 7.5rem !important;
+		height: 7.5rem !important;
+	}
+	#top-header button.toggler i::before { 
+		font-size: 3rem;
+		height: 2.85rem;
+		width: 2.85rem;
+	}
+	#search-menu-toggles {
+		margin-top: 0.8rem;
+	}
+	button#searchButton, button#mainMenuHamburger {
+		height: 6rem;
+		width: 6rem; 
+		font-size: 1.25rem;
+		padding: 0 1rem;
+	}
+	button#searchButton.toggler[aria-expanded=true]::after,
+	button#mainMenuHamburger.toggler[aria-expanded=true]::after {
+		top: 7.5rem;
+		border-left-width: 2.7rem;
+		border-right-width: 2.7rem;
+	}
+	button#searchButton.toggler[aria-expanded=true]::after {	    
+		right: 6.2rem;
+	}
+	button#mainMenuHamburger.toggler[aria-expanded=true]::after {
+		right: 0.2rem;
+	}	
+	#searchWrapper,
+	#allNavWrapper {
+		top: 7.5rem;
+	}
+}
+@media (min-width: 992px) 
 {
 	/* Add the top and bottom grey stripes */
 	#top-header {

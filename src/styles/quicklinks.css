@@ -28,7 +28,7 @@ ul#quick-links li a i {
 }
 
 /* Reposition and resize Quick Links on widescreen displays */
-@media (min-width: 900px) 
+@media (min-width: 992px) 
 {	
 	#quicklinksWrapper {
 		margin: 0 auto;

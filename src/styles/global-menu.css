@@ -75,7 +75,7 @@ ul#main-menu ul.dropdown-menu a::before {
 }
 
 /* Reposition and resize menu on widescreen displays */
-@media (min-width: 900px) 
+@media (min-width: 992px) 
 {
 	div#allNavWrapper.collapse {
 		display: flex;

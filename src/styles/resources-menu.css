@@ -29,7 +29,7 @@ ul.resources-list li a:focus {
 	background: #f2f2f2;
 }
 
-@media (min-width: 900px) 
+@media (min-width: 992px) 
 {
 	nav.utility-nav {
 		position: absolute;

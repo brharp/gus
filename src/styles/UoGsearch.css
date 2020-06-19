@@ -18,7 +18,7 @@
 }
 
 /* Reposition and resize Search bar on widescreen displays */
-@media (min-width: 900px) 
+@media (min-width: 992px) 
 {
 	#searchWrapper.collapse {
 		display: block;

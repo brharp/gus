@@ -24,7 +24,7 @@
 #localMenu li a:focus,
 #localMenu li a:active {
     color: #000;
-	background: #F2F2F2;
+	background: #f2f2f2;
 }
 #localMenu li.dropdown > a::after {
     content: "";
@@ -76,7 +76,7 @@
 }
 
 /* Reposition and resize menu on widescreen displays */
-@media (min-width: 900px) 
+@media (min-width: 992px) 
 {
 	#localMenu ul.nav {
 		display: flex;
