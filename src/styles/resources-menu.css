@@ -1,0 +1,81 @@
+.resources-button {
+	display: none;
+}
+#collapseResources.collapse {
+	opacity: 1;
+	display: block;
+}
+
+@media (min-width: 900px) 
+{
+	nav.utility-nav {
+		position: absolute;
+		top: -3rem;
+		right: 0;
+	}
+	#collapseResources h3 {
+		font-size: 1.75rem;
+		color: #fff;
+		margin-top: 0;
+	}
+	.resources-button {
+		color: #fff;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 3rem;
+		width: 11.5rem;
+		line-height: 2rem;
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		/* transition: all 0.25s ease-in-out; */
+		font-size: 1.5rem;
+	}
+	.resources-button i.fa-bars {
+		display: inline;
+	}
+	.resources-button:hover,
+	.resources-button:focus,
+	.resources-button:active {
+		background: #FFC72A;
+		color: #000;
+	}
+	#collapseResources.collapse {
+		opacity: 0;
+	}
+	
+	#collapseResources.show {
+		/* font-size: inherit; */
+		position: absolute;
+		right: 0;
+		top: 3rem;
+		z-index: 16;
+		background: #222;
+		width: 70.5rem;
+		opacity: 1;
+		padding: 1.5rem 4rem;
+		/* transition: all 0.25s ease-in-out; */
+	}
+	ul.resources-list {
+		list-style-type: none;
+		padding-left: 1.1rem;
+	}
+	ul.resources-list li:before {
+		content: "";
+		font-family: "uofgicons";
+		font-weight: 900;
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+		position: relative;
+		left: -1rem;
+		color: #FFC72A;
+	}
+	ul.resources-list li a {
+		color: #fff;
+		font-size: 1.5rem;
+	}
+	ul.resources-list li a:hover,
+	ul.resources-list li a:focus {
+		text-decoration: underline;
+	}
+}
