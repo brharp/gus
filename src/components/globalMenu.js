@@ -6,8 +6,8 @@ const GlobalMenu = () => (
 <nav id="globalMenuWrapper">
 <ul id="main-menu">
 	<li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-1 nav-item shutter-out-horizontal">
-		<a title="Future Students" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="header-menu-item-dropdown-26" role="button">Future Students</a>
-		<ul className="dropdown-menu" aria-labelledby="header-menu-item-dropdown-26" role="menu">
+		<a title="Future Students" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="futureStudents" role="button">Future Students</a>
+		<ul className="dropdown-menu" aria-labelledby="futureStudents" role="menu">
 			<li className="nav-item"><a title="Student Services" href="https://www.uoguelph.ca/students/" className="dropdown-item">Student Services</a></li>
 			<li className="nav-item"><a title="Admissions" href="https://admission.uoguelph.ca/" className="dropdown-item">Admissions</a></li>
 			<li className="nav-item"><a title="What's your student profile?" href="https://sites.uoguelph.ca/categories/" className="dropdown-item">What's your student profile?</a></li>
@@ -17,16 +17,16 @@ const GlobalMenu = () => (
 		</ul>
 	</li>
 	<li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-2 nav-item shutter-out-horizontal">
-		<a title="Current Students" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="header-menu-item-dropdown-27">Current Students</a>
-		<ul className="dropdown-menu" aria-labelledby="header-menu-item-dropdown-27" role="menu">
+		<a title="Current Students" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="currentStudents">Current Students</a>
+		<ul className="dropdown-menu" aria-labelledby="currentStudents" role="menu">
 			<li className="nav-item"><a title="Student Life" href="https://studentlife.uoguelph.ca/" className="dropdown-item">Student Life</a></li>
 			<li className="nav-item"><a title="Undergraduate Calendar" href="https://www.uoguelph.ca/registrar/calendars/undergraduate/current/" className="dropdown-item">Undergraduate Calendar</a></li>
 			<li className="nav-item"><a title="Graduate Calendar" href="https://www.uoguelph.ca/registrar/calendars/graduate/current/" className="dropdown-item">Graduate Calendar</a></li>
 		</ul>
 	</li>
 	<li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-3 nav-item shutter-out-horizontal">
-		<a title="Faculty &amp; Staff" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="header-menu-item-dropdown-28">Faculty &amp; Staff</a>
-		<ul className="dropdown-menu" aria-labelledby="header-menu-item-dropdown-28" role="menu">
+		<a title="Faculty &amp; Staff" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="facultyStaff">Faculty &amp; Staff</a>
+		<ul className="dropdown-menu" aria-labelledby="facultyStaff" role="menu">
 			<li className="nav-item"><a title="Academic Departments" href="https://www.uoguelph.ca/academics/departments/" className="dropdown-item">Academic Departments</a></li>
 			<li className="nav-item"><a title="Staff Departments" href="https://www.uoguelph.ca/faculty/" className="dropdown-item">Staff Departments</a></li>
 			<li className="nav-item"><a title="Campus Directory" href="https://www.uoguelph.ca/directory/" className="dropdown-item">Campus Directory</a></li>
@@ -35,8 +35,8 @@ const GlobalMenu = () => (
 		</ul>
 	</li>
 	<li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-4 nav-item shutter-out-horizontal">
-		<a title="Alumni &amp; Friends" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="header-menu-item-dropdown-29">Alumni &amp; Friends</a>
-		<ul className="dropdown-menu menu-cutoff-right" aria-labelledby="header-menu-item-dropdown-29" role="menu">
+		<a title="Alumni &amp; Friends" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="dropdown-toggle nav-link" id="alumniFriends">Alumni &amp; Friends</a>
+		<ul className="dropdown-menu menu-cutoff-right" aria-labelledby="alumniFriends" role="menu">
 			<li className="nav-item"><a title="Alumni Affairs" href="https://alumni.uoguelph.ca/" className="dropdown-item">Alumni Association</a></li>
 			<li className="nav-item"><a title="Portico Magazine" href="http://porticomagazine.ca/" className="dropdown-item">Portico Magazine</a></li>
 			<li className="nav-item"><a title="Give to U of G" href="https://alumni.uoguelph.ca/give" className="dropdown-item">Give to U of G</a></li>

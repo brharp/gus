@@ -4,7 +4,7 @@ import "../styles/UoGsearch.css"
 const UoGsearch = () => (
 
 <div id="searchWrapper" className="collapse" data-parent="#searchMenuArea">
-	<h4>Search U of G</h4>
+	<h3>Search U of G</h3>
 	<form id="ugSearch" className="d-flex" method="get" action="https://uoguelph.ca/search/">
 		<input className="form-control" type="text" name="q" aria-label="Search U of G" placeholder="Search U of G" />
 		<input type="hidden" name="cx" value="002616817380988741256:tp3ks5ha2dw" />

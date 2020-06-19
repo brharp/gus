@@ -30,7 +30,7 @@
 		margin: 0;
 		border: none;
 	}
-	#searchWrapper h4 {
+	#searchWrapper h3 {
 		display: none;
 	}
 	#searchWrapper .form-control {

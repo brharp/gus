@@ -23,13 +23,13 @@ ul#main-menu li.menu-item a:hover,
 ul#main-menu li.menu-item a:focus,
 ul#main-menu li.menu-item a:active {
     color: #000;
-	background: #F2F2F2;
+	background: #f2f2f2;
 }
 ul#main-menu li.menu-item.dropdown > a::after {
     content: "";
     font-family: "uofgicons";
     font-weight: 900;
-    color: #C20430;
+    color: #c20430;
     position: absolute;
     top: 1rem;
     right: 1.5rem;
@@ -60,7 +60,7 @@ ul#main-menu ul.dropdown-menu a {
 ul#main-menu ul.dropdown-menu a:hover, 
 ul#main-menu ul.dropdown-menu a:focus,
 ul#main-menu ul.dropdown-menu a:active {
-    background: ##F2F2F2;
+    background: #f2f2f2;
 }
 
 ul#main-menu ul.dropdown-menu a::before {
@@ -68,7 +68,7 @@ ul#main-menu ul.dropdown-menu a::before {
     font-family: "uofgicons";
     font-weight: 900;
 	font-size: 1.2rem;
-    color: #FFC72A;
+    color: #ffc72a;
 	display: block;
 	float: left;
 	width: 1.5rem;
@@ -113,9 +113,8 @@ ul#main-menu ul.dropdown-menu a::before {
 		vertical-align: middle;
 		transform: perspective(0.1rem) translateZ(0);
 		box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0);
-		/* position: relative; */
 		width: 10rem;
-		background: #C20430;
+		background: #c20430;
 		transition-property: color;
 		transition-duration: 0.15s;
 	}
@@ -135,7 +134,7 @@ ul#main-menu ul.dropdown-menu a::before {
 		content: "";
 		font-family: "uofgicons";
 		font-weight: 400;
-		color: #FFC72A;
+		color: #ffc72a;
 		display: block;
 		border: none;
 		height: 1.5rem;
@@ -146,12 +145,12 @@ ul#main-menu ul.dropdown-menu a::before {
 	ul#main-menu li.menu-item a:focus,
 	ul#main-menu li.menu-item a:active {
 		color: #000;
-		background: #FFC72A;
+		background: #ffc72a;
 	}
 	ul#main-menu li.menu-item.dropdown > a:hover:after,
 	ul#main-menu li.menu-item.dropdown > a:focus:after,
 	ul#main-menu li.menu-item.dropdown > a:active:after {
-		color: #C20430;
+		color: #c20430;
 	}
 	/* Submenus of Global Menu */
 	ul#main-menu ul.dropdown-menu.show {

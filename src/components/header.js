@@ -14,39 +14,30 @@ const Header = () => (
 			</a>
 		</h1>
 	</div>
-	{/* utility-bar is the top dark-grey area for search and Resources menu 
-	<div className="utility-bar">
-		<div className="container">
-			<nav className="utility-nav">
-			</nav>
-		</div>
-	</div> end utility-bar 
-	<div className="top-primary-nav-wrapper">*/}
-		<div className="container">
-			<nav className="navbar navbar-default navbar-static-top" role="navigation">
-				<div className="row">
-					<div id="searchMenuArea" className="accordion offset-sm-6 col-sm-6">
-						<div id="search-menu-toggles">
-							<button className="search-toggler toggler" type="button" data-toggle="collapse" data-target="#searchWrapper" aria-expanded="false" aria-label="Toggle search" id="searchButton">
-								<i className="fa fa-search"></i>Search
-							</button>
-							<button className="navbar-toggler toggler" type="button" data-toggle="collapse" data-target="#allNavWrapper" aria-controls="global-nav" aria-expanded="false" aria-label="Toggle navigation" id="mainMenuHamburger">
-								<i className="fa fa-bars"></i>Menu
-							</button>						
-						</div>
-						<UoGsearch />
-						<div id="allNavWrapper" className="collapse navbar-collapse" data-parent="#searchMenuArea">
-							<GlobalMenu />
-							<hr />
-							<LocalMenu />
-							<hr />
-							<ResourcesMenu />
-						</div>
+	<div className="container">
+		<nav className="navbar navbar-default navbar-static-top" role="navigation">
+			<div className="row">
+				<div id="searchMenuArea" className="accordion offset-sm-6 col-sm-6">
+					<div id="search-menu-toggles">
+						<button className="search-toggler toggler" type="button" data-toggle="collapse" data-target="#searchWrapper" aria-expanded="false" aria-label="Toggle search" id="searchButton">
+							<i className="fa fa-search"></i>Search
+						</button>
+						<button className="navbar-toggler toggler" type="button" data-toggle="collapse" data-target="#allNavWrapper" aria-controls="global-nav" aria-expanded="false" aria-label="Toggle navigation" id="mainMenuHamburger">
+							<i className="fa fa-bars"></i>Menu
+						</button>						
+					</div>
+					<UoGsearch />
+					<div id="allNavWrapper" className="collapse navbar-collapse" data-parent="#searchMenuArea">
+						<GlobalMenu />
+						<hr />
+						<LocalMenu />
+						<hr />
+						<ResourcesMenu />
 					</div>
 				</div>
-			</nav>
-		</div>
-		{/* </div> */}
+			</div>
+		</nav>
+	</div>
 </header>
 )
 

@@ -79,7 +79,6 @@
 @media (min-width: 900px) 
 {
 	#localMenu ul.nav {
-		/* width: 100%; */
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-end;

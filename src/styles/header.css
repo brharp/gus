@@ -15,7 +15,6 @@ h1.logo img { opacity: 1 !important; }
     display: inline-block;
     margin-bottom: 0.5rem;
 }
-
 #search-menu-toggles {
 	float: right;
 }
@@ -35,7 +34,7 @@ button#mainMenuHamburger {
 	line-height: 1;	
 }
 button#mainMenuHamburger i.fa-bars {
-	display: block;
+	display: block; /* make the menu icon appear above the word "Menu" */
 }
 button#searchButton.toggler[aria-expanded=true]::after,
 button#mainMenuHamburger.toggler[aria-expanded=true]::after {
@@ -59,7 +58,6 @@ button#searchButton.toggler[aria-expanded=true]::after {
 button#mainMenuHamburger.toggler[aria-expanded=true]::after {
     right: 0;
 }
-
 #searchWrapper,
 #allNavWrapper {
 	background: #fff;
@@ -95,9 +93,9 @@ button#mainMenuHamburger.toggler[aria-expanded=true]::after {
 	}
 	#allNavWrapper {
 		height: auto;
-		overflow: visible;
+		overflow: visible; /* get rid of scrollbars in widescreen view */
 	}
 	.menu-name {
-		display: none;
+		display: none; /* hide the site title */
 	}
 }

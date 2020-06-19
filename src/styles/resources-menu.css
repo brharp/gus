@@ -15,7 +15,7 @@ ul.resources-list li a:before {
 	font-size: 1.5rem;
 	line-height: 1.5rem;
 	position: relative;
-	color: #FFC72A;
+	color: #ffc72a;
 	display: inline-block;
 	padding-right: 0.8rem;
 }
@@ -26,7 +26,7 @@ ul.resources-list li a {
 }
 ul.resources-list li a:hover,
 ul.resources-list li a:focus {
-	background: #F2F2F2;
+	background: #f2f2f2;
 }
 
 @media (min-width: 900px) 
@@ -51,9 +51,16 @@ ul.resources-list li a:focus {
 		line-height: 2rem;
 		display: inline-block;
 		padding: 0.5rem 1rem;
-		/* transition: all 0.25s ease-in-out; */
+		transition: all 0.25s ease-in-out;
 		font-size: 1.5rem;
 	}
+	.resources-button[aria-expanded=true] {
+		background: #ffc72a;
+		color: #000;
+		text-decoration: none;
+		transition: all 0.25s ease-in-out;
+	}
+	/* The triangle appearing below "Resources" when the menu is expanded */
 	.resources-button[aria-expanded=true]::after {
 		content: "";
 		width: 0;
@@ -61,32 +68,25 @@ ul.resources-list li a:focus {
 		border: 0 solid transparent;
 		border-left-width: 2rem;
 		border-right-width: 2rem;
-		border-top: 1rem solid #FFC72A;
+		border-top: 1rem solid #ffc72a;
 		z-index: 21;
 		position: absolute;
 		top: 3rem;
 		left: 35%;
-		/* transition: all 0.25s ease-in-out; */
+		transition: all 0.25s ease-in-out;
 	}
 	.resources-button i.fa-bars {
 		display: inline;
 	}
 	.resources-button:hover,
 	.resources-button:focus {
-		background: #FFC72A;
+		background: #ffc72a;
 		color: #000;
-	}
-	.resources-button[aria-expanded=true] {
-		background: #FFC72A;
-		color: #000;
-		text-decoration: none;
-		transition: all 0.25s ease-in-out;
 	}
 	#collapseResources.collapse {
 		display: none;
 	}
 	#collapseResources.show {
-		/* font-size: inherit; */
 		display: block;
 		position: absolute;
 		right: 0;
@@ -95,7 +95,7 @@ ul.resources-list li a:focus {
 		background: #222;
 		width: 70.5rem;
 		padding: 1.5rem 4rem;
-		/* transition: all 0.25s ease-in-out; */
+		transition: all 0.25s ease-in-out;
 	}
 	ul.resources-list {
 		list-style-type: none;
