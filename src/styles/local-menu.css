@@ -30,7 +30,7 @@
     content: "";
     font-family: "uofgicons";
     font-weight: 900;
-    color: #C20430;
+    color: #c20430;
     position: absolute;
     top: 1rem;
     right: 1.5rem;
@@ -61,7 +61,7 @@
 #localMenu ul.dropdown-menu a:hover, 
 #localMenu ul.dropdown-menu a:focus,
 #localMenu ul.dropdown-menu a:active {
-    background: ##F2F2F2;
+    background: #f2f2f2;
 }
 
 #localMenu ul.dropdown-menu a::before {
@@ -69,7 +69,7 @@
     font-family: "uofgicons";
     font-weight: 900;
 	font-size: 1.2rem;
-    color: #FFC72A;
+    color: #ffc72a;
 	display: block;
 	float: left;
 	width: 1.5rem;
