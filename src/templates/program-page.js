@@ -16,6 +16,7 @@ import NavTabs from '../components/navTabs';
 import NavTabHeading from '../components/navTabHeading';
 import NavTabContent from '../components/navTabContent';
 import ColumnLists from '../components/columnLists';
+import Video from '../components/video';
 import { contentIsNullOrEmpty, sortLastModifiedDates } from '../utils/ug-utils';
 import { useIconData } from '../utils/fetch-icon';
 import '../styles/program-page.css';
@@ -457,7 +458,7 @@ export default ({data, location}) => {
 	}
 	
 	{ /**** Videos ****/ }
-	<div>{videoData[0].node.title}: {videoData[0].node.field_video_url} </div>
+	<Video videoData={videoData} />
 
       { /**** Call to Actions ****/ }
       {callToActionData.length !== 0 &&
@@ -731,8 +732,9 @@ export const query = graphql`
     videos: allNodeVideo(filter: {fields: {tags: {in: [$id] }}}) {
       edges {
         node {
+		  drupal_id
 		  title
-		  field_video_url
+		  field_video_id
           relationships {
             field_tags {
                __typename

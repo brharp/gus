@@ -198,7 +198,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 	type node__video implements Node {
 	  drupal_id: String
 	  title: String
-	  field_video_url: String
+	  field_video_id: String
 	  relationships: node__videoRelationships
 	  fields: node__videoFields
 	}
