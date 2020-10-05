@@ -458,7 +458,7 @@ export default ({data, location}) => {
 	}
 	
 	{ /**** Videos ****/ }
-	<Video videoData={videoData} />
+	<Video videoData={videoData} headingLevel='h2' />
 
 	{ /**** Call to Actions ****/ }
 	{callToActionData.length !== 0 &&
