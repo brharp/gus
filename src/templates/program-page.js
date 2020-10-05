@@ -60,7 +60,7 @@ function renderProgramOverview(description, specData) {
 		</React.Fragment>
 	}
 
-  return null;
+	return null;
 }
 
 function renderProgramStats(degreesData, variantData, statsData, imageData) {
@@ -301,46 +301,46 @@ function renderProgramInfo (courseData, courseNotes, variantDataHeading, variant
 }
 
 function retrieveLastModifiedDates (content) {
-  let dates = [];
+	let dates = [];
 
-  if (!contentIsNullOrEmpty(content)) {  
-    content.forEach((edge) => {
-        dates.push(edge.node.changed);
-    })
-  }
-  
-  return dates;
+	if (!contentIsNullOrEmpty(content)) {  
+		content.forEach((edge) => {
+			dates.push(edge.node.changed);
+		})
+	}
+
+	return dates;
 }
 
 function prepareVariantHeading (variantData) {
-  let labels = [];
+	let labels = [];
 
-  // prepare variant data labels
-  variantData.forEach((edge) => {
-    if ((edge.__typename === "paragraph__program_variants") 
-    && (edge.relationships.field_variant_type !== null)) {
-      labels.push(edge.relationships.field_variant_type.name);
-    }
-  });
+	// prepare variant data labels
+	variantData.forEach((edge) => {
+		if ((edge.__typename === "paragraph__program_variants") 
+		&& (edge.relationships.field_variant_type !== null)) {
+			labels.push(edge.relationships.field_variant_type.name);
+		}
+	});
 
-  const uniqueLabelSet = new Set(labels);
-  const uniqueLabels = [...uniqueLabelSet];
-  let variantHeading = "";
+	const uniqueLabelSet = new Set(labels);
+	const uniqueLabels = [...uniqueLabelSet];
+	let variantHeading = "";
 
-  for (let i=0; i<uniqueLabels.length; i++) {
-    if (i > 0) { 
-      if (uniqueLabels.length > 2){
-        variantHeading += ",";
-      }
-      variantHeading += " ";
-      if (i === (uniqueLabels.length - 1)) {
-        variantHeading += "and ";
-      }
-    }
-    variantHeading += uniqueLabels[i];
-  }
+	for (let i=0; i<uniqueLabels.length; i++) {
+		if (i > 0) { 
+			if (uniqueLabels.length > 2) {
+				variantHeading += ",";
+			}
+			variantHeading += " ";
+			if (i === (uniqueLabels.length - 1)) {
+				variantHeading += "and ";
+			}
+		}
+		variantHeading += uniqueLabels[i];
+	}
   
-  return variantHeading;
+	return variantHeading;
 }
 
 export default ({data, location}) => {
@@ -352,7 +352,7 @@ export default ({data, location}) => {
 	let imageData;
 	let progData;
 	let specData;
-	var statsData;
+	let statsData;
 	let tagData;
 	let testimonialData;
 	let variantData;
@@ -376,27 +376,27 @@ export default ({data, location}) => {
 	const courseNotes = !contentIsNullOrEmpty(progData.field_course_notes) ? progData.field_course_notes.processed : ``;
 	const testimonialHeading = (acronym !== `` ? "What Students are saying about the " + acronym + " program" : "What Students are Saying");
 
-  // set last modified date
-  let allModifiedDates = sortLastModifiedDates(
-    [progData.changed,
-    retrieveLastModifiedDates(callToActionData),
+	// set last modified date
+	let allModifiedDates = sortLastModifiedDates(
+		[progData.changed,
+		retrieveLastModifiedDates(callToActionData),
 		retrieveLastModifiedDates(testimonialData)
-    ]);
-  let lastModified = allModifiedDates[allModifiedDates.length - 1];
+		]);
+	let lastModified = allModifiedDates[allModifiedDates.length - 1];
 
 	// set degree, specialization, variant, and tag info  
 	degreesData = progData.relationships.field_degrees;
-  specData = progData.relationships.field_specializations;
-  tagData = progData.relationships.field_tags;
+	specData = progData.relationships.field_specializations;
+	tagData = progData.relationships.field_tags;
 	variantData = progData.relationships.field_program_variants;
-  let variantDataHeading = prepareVariantHeading(variantData);
+	let variantDataHeading = prepareVariantHeading(variantData);
 
-  return (
+	return (
 	<Layout date={lastModified}>
-      <Helmet bodyAttributes={{
-          class: 'program'
-      }}
-    />
+	  <Helmet bodyAttributes={{
+		  class: 'program'
+	  }}
+	/>
 	<SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
       { /**** Header and Title ****/ }
       <div id="rotator">
@@ -407,29 +407,29 @@ export default ({data, location}) => {
         </div>
       </div>
 
-      { /**** Tags and Call to Action Button ****/ }
-      <div className="full-width-container bg-dark">
-          <div className="container">
-              <section className="row row-with-vspace site-content">
-                  <div className="col-md-9 content-area">
-                    {tagData && tagData.length > 0 ?  
-                      (<Tags tagData={tagData} />)
-                      : null
-                    }	
-                  </div>
-                  <div className="col-md-3">
-                    {callToActionData.map((cta, index) => (
-                      <CallToAction key={index} href={cta.node.field_call_to_action_link.uri} 
-                        goalEventCategory={cta.node.relationships.field_call_to_action_goal.name} 
-                        goalEventAction={cta.node.relationships.field_call_to_action_goal.field_goal_action} 
-                        classNames='btn btn-uogRed apply' >
-                        {cta.node.field_call_to_action_link.title}
-                      </CallToAction>
-                    ))}
-                  </div>
-              </section>
-          </div>
-      </div>
+	{ /**** Tags and Call to Action Button ****/ }
+	<div className="full-width-container bg-dark">
+	  <div className="container">
+		  <section className="row row-with-vspace site-content">
+			  <div className="col-md-9 content-area">
+				{tagData && tagData.length > 0 ?  
+				  (<Tags tagData={tagData} />)
+				  : null
+				}	
+			  </div>
+			  <div className="col-md-3">
+				{callToActionData.map((cta, index) => (
+				  <CallToAction key={index} href={cta.node.field_call_to_action_link.uri} 
+					goalEventCategory={cta.node.relationships.field_call_to_action_goal.name} 
+					goalEventAction={cta.node.relationships.field_call_to_action_goal.field_goal_action} 
+					classNames='btn btn-uogRed apply' >
+					{cta.node.field_call_to_action_link.title}
+				  </CallToAction>
+				))}
+			  </div>
+		  </section>
+	  </div>
+	</div>
 
 	{ /**** Program Overview ****/ }
 	<div className="container page-container">
@@ -443,14 +443,14 @@ export default ({data, location}) => {
 	{ /**** Program Stats ****/ }
 	{renderProgramStats(degreesData, variantData, statsData, imageData)}
 
-  { /**** Program Information Tabs ****/ }
-    <div className="container page-container">
-      <section className="row row-with-vspace site-content">
-        <div className="col-md-12 content-area">
-          {renderProgramInfo(courseData, courseNotes, variantDataHeading, variantData, careerData, employerData)}
-        </div>
-      </section>
-    </div>                    
+	{ /**** Program Information Tabs ****/ }
+	<div className="container page-container">
+	  <section className="row row-with-vspace site-content">
+		<div className="col-md-12 content-area">
+		  {renderProgramInfo(courseData, courseNotes, variantDataHeading, variantData, careerData, employerData)}
+		</div>
+	  </section>
+	</div>                    
 
 	{ /**** Testimonials ****/ }
 	{testimonialData && 
@@ -460,26 +460,26 @@ export default ({data, location}) => {
 	{ /**** Videos ****/ }
 	<Video videoData={videoData} />
 
-      { /**** Call to Actions ****/ }
-      {callToActionData.length !== 0 &&
-        <div className="container page-container apply-footer">
-          <section className="row row-with-vspace site-content">
-              <div className="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 content-area">
-                  <h3><span>Are you ready to</span> Improve Life?</h3>
-                  {callToActionData.map((cta, index) => (
-                      <CallToAction key={index} href={cta.node.field_call_to_action_link.uri} 
-                        goalEventCategory={cta.node.relationships.field_call_to_action_goal.name} 
-                        goalEventAction={cta.node.relationships.field_call_to_action_goal.field_goal_action} 
-                        classNames='btn btn-uogRed apply' >
-                      {cta.node.field_call_to_action_link.title}
-                      </CallToAction>
-                    ))}
-              </div>
-          </section>
-        </div>
-      }
+	{ /**** Call to Actions ****/ }
+	{callToActionData.length !== 0 &&
+	<div className="container page-container apply-footer">
+	  <section className="row row-with-vspace site-content">
+		  <div className="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 content-area">
+			  <h3><span>Are you ready to</span> Improve Life?</h3>
+			  {callToActionData.map((cta, index) => (
+				  <CallToAction key={index} href={cta.node.field_call_to_action_link.uri} 
+					goalEventCategory={cta.node.relationships.field_call_to_action_goal.name} 
+					goalEventAction={cta.node.relationships.field_call_to_action_goal.field_goal_action} 
+					classNames='btn btn-uogRed apply' >
+				  {cta.node.field_call_to_action_link.title}
+				  </CallToAction>
+				))}
+		  </div>
+	  </section>
+	</div>
+	}
 
-		</Layout>
+	</Layout>
 	)
 }
 
