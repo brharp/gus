@@ -193,7 +193,20 @@ exports.createSchemaCustomization = ({ actions }) => {
     type node__testimonialRelationships {
       field_image: file__file @link(from: "field_image___NODE")
       field_tags: [relatedTaxonomyUnion] @link(from: "field_tags___NODE")
-    }    
+    }
+	type node__video implements Node {
+	  drupal_id: String
+	  title: String
+	  field_video_url: String
+	  relationships: node__videoRelationships
+	  fields: node__videoFields
+	}
+	type node__videoFields implements Node {
+      tags: [String]
+    }
+	type node__videoRelationships implements Node {
+	  field_tags: [relatedTaxonomyUnion] @link(from: "field_tags___NODE")
+	}
 
 	type paragraph__general_text implements Node {
       drupal_id: String
@@ -292,12 +305,13 @@ exports.onCreateNode = ({ node, createNodeId, actions }) => {
   const { createNodeField } = actions
 
   // Handle nodes that point to multiple tag vocabularies
-  if (node.internal.type === `node__call_to_action` ||
-      node.internal.type === `node__testimonial` ||
-      node.internal.type === `media__image` || 
-      node.internal.type === `node__course` || 
+  if (node.internal.type === `media__image` || 
+	  node.internal.type === `node__call_to_action` ||
       node.internal.type === `node__career` || 
-      node.internal.type === `node__employer`) {
+	  node.internal.type === `node__course` ||
+	  node.internal.type === `node__employer` ||
+	  node.internal.type === `node__testimonial` ||      
+      node.internal.type === `node__video`) {
     createNodeField({
       node,
       name: `tags`,

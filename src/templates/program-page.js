@@ -343,28 +343,30 @@ function prepareVariantHeading (variantData) {
 }
 
 export default ({data, location}) => {
-  let callToActionData = [];
-  let careerData;
-  let courseData;
-  let degreesData;
-  let employerData;
+	let callToActionData = [];
+	let careerData;
+	let courseData;
+	let degreesData;
+	let employerData;
 	let imageData;
-  let progData;
-  let specData;
-  var statsData;
-  let tagData;
-  let testimonialData;
-  let variantData;
+	let progData;
+	let specData;
+	var statsData;
+	let tagData;
+	let testimonialData;
+	let variantData;
+	let videoData;
   
 	// set data
-  if (data.programs.edges[0] !== undefined) { progData = data.programs.edges[0].node; }
-  if (progData.relationships.field_courses !== undefined) { courseData = progData.relationships.field_courses; }
-  if (progData.relationships.field_program_statistics !== undefined) { statsData = progData.relationships.field_program_statistics; }
-  if (data.ctas.edges[0] !== undefined) { callToActionData = data.ctas.edges; }
-  if (data.images.edges !== undefined) { imageData = data.images.edges; }
-  if (data.testimonials.edges[0] !== undefined) { testimonialData = data.testimonials.edges; }
-  if (data.careers.edges[0] !== undefined) { careerData = data.careers.edges; }
-  if (data.employers.edges[0] !== undefined) { employerData = data.employers.edges; }
+	if (data.programs.edges[0] !== undefined) { progData = data.programs.edges[0].node; }
+	if (progData.relationships.field_courses !== undefined) { courseData = progData.relationships.field_courses; }
+	if (progData.relationships.field_program_statistics !== undefined) { statsData = progData.relationships.field_program_statistics; }
+	if (data.ctas.edges[0] !== undefined) { callToActionData = data.ctas.edges; }
+	if (data.careers.edges[0] !== undefined) { careerData = data.careers.edges; }
+	if (data.employers.edges[0] !== undefined) { employerData = data.employers.edges; }
+	if (data.images.edges !== undefined) { imageData = data.images.edges; }
+	if (data.testimonials.edges[0] !== undefined) { testimonialData = data.testimonials.edges; }
+	if (data.videos.edges[0] !== undefined) { videoData = data.videos.edges; }
 
 	// set program details
 	const title = progData.title;
@@ -453,6 +455,9 @@ export default ({data, location}) => {
 	{testimonialData && 
 		<Testimonials testimonialData={testimonialData} heading={testimonialHeading} headingLevel='h3' />
 	}
+	
+	{ /**** Videos ****/ }
+	<div>{videoData[0].node.title}: {videoData[0].node.field_video_url} </div>
 
       { /**** Call to Actions ****/ }
       {callToActionData.length !== 0 &&
@@ -592,7 +597,70 @@ export const query = graphql`
         }
       }
     }
+	
+	careers: allNodeCareer(sort: {fields: [title], order: ASC}, filter: {fields: {tags: {in: [$id] }}}) {
+      edges {
+        node {
+          title
+          drupal_id
+          changed
+          body {
+            processed
+          }
+          relationships {
+            field_tags {
+              __typename
+              ... on TaxonomyInterface {
+                drupal_id
+                id
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+	
+    employers: allNodeEmployer(sort: {fields: title}, filter: {fields: {tags: {in: [$id] }}}) {
+      edges {
+        node {
+          drupal_id
+          field_employer_summary {
+              processed
+          }
+          title
+          field_image {
+            alt
+          }
+          field_link {
+            uri
+          }
+          relationships {
+            field_tags {
+              __typename
+              ... on TaxonomyInterface {
+                drupal_id
+                id
+                name
+              }
+            }
 
+            field_image {
+              localFile {
+                url
+                childImageSharp {
+                  fluid(maxWidth: 400, maxHeight: 400) {
+                      originalImg
+                      ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+	
     images: allMediaImage(filter: {fields: {tags: {in: [$id] }}}) {
       edges {
         node {
@@ -660,67 +728,24 @@ export const query = graphql`
       }
     }
 
-    employers: allNodeEmployer(sort: {fields: title}, filter: {fields: {tags: {in: [$id] }}}) {
+    videos: allNodeVideo(filter: {fields: {tags: {in: [$id] }}}) {
       edges {
         node {
-          drupal_id
-          field_employer_summary {
-              processed
-          }
-          title
-          field_image {
-            alt
-          }
-          field_link {
-            uri
-          }
+		  title
+		  field_video_url
           relationships {
             field_tags {
-              __typename
+               __typename
               ... on TaxonomyInterface {
-                drupal_id
+				drupal_id
                 id
                 name
-              }
-            }
-
-            field_image {
-              localFile {
-                url
-                childImageSharp {
-                  fluid(maxWidth: 400, maxHeight: 400) {
-                      originalImg
-                      ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+			  }
             }
           }
-        }
+		}
       }
     }
-
-    careers: allNodeCareer(sort: {fields: [title], order: ASC}, filter: {fields: {tags: {in: [$id] }}}) {
-      edges {
-        node {
-          title
-          drupal_id
-          changed
-          body {
-            processed
-          }
-          relationships {
-            field_tags {
-              __typename
-              ... on TaxonomyInterface {
-                drupal_id
-                id
-                name
-              }
-            }
-          }
-        }
-      }
-    }
+	
   }
 `
