@@ -343,6 +343,20 @@ function prepareVariantHeading (variantData) {
 	return variantHeading;
 }
 
+function renderVideos (videoData) {
+	let checkIfContentAvailable = false;
+	
+	if (!contentIsNullOrEmpty(videoData)) {
+		checkIfContentAvailable = true;
+	}
+	
+	if (checkIfContentAvailable === true) {
+		return <React.Fragment><Video videoData={videoData} headingLevel='h2' /></React.Fragment>
+	}
+	
+	return null;
+}
+
 export default ({data, location}) => {
 	let callToActionData = [];
 	let careerData;
@@ -458,7 +472,7 @@ export default ({data, location}) => {
 	}
 	
 	{ /**** Videos ****/ }
-	<Video videoData={videoData} headingLevel='h2' />
+	{renderVideos(videoData)}
 
 	{ /**** Call to Actions ****/ }
 	{callToActionData.length !== 0 &&
@@ -735,6 +749,7 @@ export const query = graphql`
 		  drupal_id
 		  title
 		  field_video_id
+		  field_video_src
           relationships {
             field_tags {
                __typename

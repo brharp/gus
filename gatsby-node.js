@@ -199,6 +199,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 	  drupal_id: String
 	  title: String
 	  field_video_id: String
+	  field_video_src: String
 	  relationships: node__videoRelationships
 	  fields: node__videoFields
 	}

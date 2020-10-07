@@ -26,6 +26,7 @@
     "gatsby-source-instagram": "^0.8.0",
     "gatsby-transformer-sharp": "^2.5.5",
     "is-subset": "^0.1.1",
+    "mediaelement": "^4.2.16",
     "moment-timezone": "^0.5.31",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
