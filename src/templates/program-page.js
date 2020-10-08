@@ -17,6 +17,7 @@ import NavTabHeading from '../components/navTabHeading';
 import NavTabContent from '../components/navTabContent';
 import ColumnLists from '../components/columnLists';
 import Video from '../components/video';
+//import UGvideo from '../components/ugVideo';
 import { contentIsNullOrEmpty, sortLastModifiedDates } from '../utils/ug-utils';
 import { useIconData } from '../utils/fetch-icon';
 import '../styles/program-page.css';
@@ -351,6 +352,7 @@ function renderVideos (videoData) {
 	}
 	
 	if (checkIfContentAvailable === true) {
+		/* change component call below to UGVideo to test the UG media player */
 		return <React.Fragment><Video videoData={videoData} headingLevel='h2' /></React.Fragment>
 	}
 	
