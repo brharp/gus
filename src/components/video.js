@@ -16,7 +16,11 @@ function Video (props) {
 				
 				{props.videoData.map (video => {
 					let videoType = video.node.field_video_src;
-					let videoURL = (videoType === "youtube" ? youtubeURL + video.node.field_video_id : vimeoURL + video.node.field_video_id);					
+					let transcriptFile = (video.node.relationships.field_video_transcript_file !== null ? video.node.relationships.field_video_transcript_file.localFile.publicURL : null);
+					let transcriptURL = video.node.field_video_transcript_url;
+					let videoURL = (videoType === "youtube" ? youtubeURL + video.node.field_video_id : vimeoURL + video.node.field_video_id);
+					let videoTranscript = ((transcriptFile !== null) ? transcriptFile : (transcriptURL !== null) ? transcriptURL : null);
+					let transcriptLink = (videoTranscript !== null ? <p><a href={videoTranscript}>Transcript</a></p> : null);
 					
 					return <React.Fragment key={video.drupal_id}>
 					<div className="col-sm-6 content-area">
@@ -27,8 +31,9 @@ function Video (props) {
 						  width="100%"
 						  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 						  allowFullScreen
-						/>
+						/>						
 						</div>
+						{transcriptLink}
 					</div>
 					</React.Fragment>
 				})}

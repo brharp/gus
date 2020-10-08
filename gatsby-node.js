@@ -200,6 +200,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 	  title: String
 	  field_video_id: String
 	  field_video_src: String
+	  field_video_transcript_url: String
 	  relationships: node__videoRelationships
 	  fields: node__videoFields
 	}
@@ -208,6 +209,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 	type node__videoRelationships implements Node {
 	  field_tags: [relatedTaxonomyUnion] @link(from: "field_tags___NODE")
+	  field_video_transcript_file: file__file @link(from: "field_video_transcript_file___NODE")
 	}
 
 	type paragraph__general_text implements Node {

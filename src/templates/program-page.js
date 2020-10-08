@@ -752,6 +752,7 @@ export const query = graphql`
 		  title
 		  field_video_id
 		  field_video_src
+		  field_video_transcript_url
           relationships {
             field_tags {
                __typename
@@ -761,7 +762,12 @@ export const query = graphql`
                 name
 			  }
             }
-          }
+			field_video_transcript_file {
+              localFile {
+                publicURL
+              }
+            }
+		  }
 		}
       }
     }
