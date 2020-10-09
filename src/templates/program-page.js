@@ -1,24 +1,26 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import SVG from 'react-inlinesvg';
-import { graphql } from 'gatsby';
-import Layout from '../components/layout';
-import Img from 'gatsby-image';
-import SEO from '../components/seo';
-import Degrees from '../components/degrees';
-import Stats from '../components/stats'
-import Variants from '../components/variants';
-import Tags from '../components/tags';
 import CallToAction from '../components/callToAction';
-import Testimonials from '../components/testimonial';
+import Careers from '../components/careers';
 import Courses from '../components/courses';
+import Degrees from '../components/degrees';
+import Employers from '../components/employers';
+import Img from 'gatsby-image';
+import Layout from '../components/layout';
 import NavTabs from '../components/navTabs';
 import NavTabHeading from '../components/navTabHeading';
 import NavTabContent from '../components/navTabContent';
-import ColumnLists from '../components/columnLists';
+import NewsGrid from '../components/newsGrid';
+import React from 'react';
+import SEO from '../components/seo';
+import Stats from '../components/stats'
+import SVG from 'react-inlinesvg';
+import Tags from '../components/tags';
+import Testimonials from '../components/testimonial';
+import Variants from '../components/variants';
 import Video from '../components/video';
 //import UGvideo from '../components/ugVideo';
 import { contentIsNullOrEmpty, sortLastModifiedDates } from '../utils/ug-utils';
+import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import { useIconData } from '../utils/fetch-icon';
 import '../styles/program-page.css';
 
@@ -232,13 +234,7 @@ function renderProgramInfo (courseData, courseNotes, variantDataHeading, variant
                                       heading={careersHeading} 
                                       headingLevel="h3" 
                                       id={careersID} 
-                                      content={
-                                        <ColumnLists numColumns={3}>
-                                          {careerData.map (unit => {
-                                            return <li key={unit.node.drupal_id}>{unit.node.title}</li>
-                                          })}
-                                        </ColumnLists>
-                                      } />);
+                                      content={<Careers careerData={careerData} numColumns={3} />} />);
   }
 
   // prep TAB 4 - Employers
@@ -259,29 +255,7 @@ function renderProgramInfo (courseData, courseNotes, variantDataHeading, variant
                                       heading={employerHeading} 
                                       headingLevel="h3" 
                                       id={employerID} 
-                                      content={
-                                        <div className="container">
-                                          <div className="row">
-                                            {employerData.map (unit => {
-                                              let employerImage = unit.node.relationships.field_image;
-                                              let employerSummary = unit.node.field_employer_summary;
-                                              let employerJobPostingsLink = !contentIsNullOrEmpty(unit.node.field_link) ? unit.node.field_link.uri : null;
-                                              return <div className="col-6 col-md-4" key={unit.node.drupal_id}>
-                                                        <div className="employer-wrapper">
-                                                          {employerImage && <div className="employer-pic">
-                                                            <Img fluid={employerImage.localFile.childImageSharp.fluid} imgStyle={{ objectFit: 'contain' }} alt={unit.node.relationships.field_image.alt} />
-                                                          </div>}
-                                                          <div className="employer-info">
-                                                            <h4 className="employer-name">{unit.node.title}</h4>
-                                                            {employerSummary && <div dangerouslySetInnerHTML={{__html: employerSummary.processed}} />}
-                                                            {employerJobPostingsLink && <p><a href={unit.node.field_link.uri}>Current Job Postings<span className="sr-only"> for {unit.node.title}</span></a></p>}
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                            })}
-                                          </div>
-                                        </div>
-                                      } />);
+                                      content={<Employers employerData={employerData} />} />);
   }
   if(checkIfContentAvailable === true){
     return <React.Fragment>
@@ -367,21 +341,23 @@ export default ({data, location}) => {
 	let employerData;
 	let imageData;
 	let progData;
+	let newsData;
 	let specData;
-	let statsData;
+	var statsData;
 	let tagData;
 	let testimonialData;
 	let variantData;
 	let videoData;
   
 	// set data
+	if (data.careers.edges[0] !== undefined) { careerData = data.careers.edges; }
+	if (data.ctas.edges[0] !== undefined) { callToActionData = data.ctas.edges; }
+	if (data.employers.edges[0] !== undefined) { employerData = data.employers.edges; }
+	if (data.images.edges !== undefined) { imageData = data.images.edges; }
+	if (data.news.edges[0] !== undefined) { newsData = data.news.edges; }
 	if (data.programs.edges[0] !== undefined) { progData = data.programs.edges[0].node; }
 	if (progData.relationships.field_courses !== undefined) { courseData = progData.relationships.field_courses; }
 	if (progData.relationships.field_program_statistics !== undefined) { statsData = progData.relationships.field_program_statistics; }
-	if (data.ctas.edges[0] !== undefined) { callToActionData = data.ctas.edges; }
-	if (data.careers.edges[0] !== undefined) { careerData = data.careers.edges; }
-	if (data.employers.edges[0] !== undefined) { employerData = data.employers.edges; }
-	if (data.images.edges !== undefined) { imageData = data.images.edges; }
 	if (data.testimonials.edges[0] !== undefined) { testimonialData = data.testimonials.edges; }
 	if (data.videos.edges[0] !== undefined) { videoData = data.videos.edges; }
 
@@ -475,6 +451,11 @@ export default ({data, location}) => {
 	
 	{ /**** Videos ****/ }
 	{renderVideos(videoData)}
+	
+	{ /*** News ****/}
+	{newsData && 
+		<NewsGrid newsData={newsData} heading="Program News" headingLevel='h2' />
+	}
 
 	{ /**** Call to Actions ****/ }
 	{callToActionData.length !== 0 &&
@@ -494,7 +475,6 @@ export default ({data, location}) => {
 	  </section>
 	</div>
 	}
-
 	</Layout>
 	)
 }
@@ -511,7 +491,7 @@ export const query = graphql`
           field_program_overview {
             processed
           }
-		  field_course_notes {
+          field_course_notes {
             processed
           }
           relationships {
@@ -539,9 +519,9 @@ export const query = graphql`
             }
             field_program_statistics {
               drupal_id
-			  field_stat_range
-			  field_stat_value
-			  field_stat_value_end
+              field_stat_range
+              field_stat_value
+              field_stat_value_end
               relationships {
                 field_stat_type {
                   name
@@ -551,11 +531,11 @@ export const query = graphql`
                     field_media_image {
                       localFile {
                         publicURL
-					  }
-					}
-				  }
-				}
-			  }
+                      }
+                    }
+                  }
+                }
+              }
             }
             field_tags {
               name
@@ -707,6 +687,54 @@ export const query = graphql`
       }
     }
 	
+	news: allNodeArticle (limit: 4, sort: {fields: created}, filter: {fields: {tags: {in: [$id] }}}) {
+      edges {
+        node {
+          title
+          drupal_id
+          changed
+          created
+          fields {
+            alias {
+              value
+            }
+          }
+          body {
+            processed
+          }
+          field_image {
+            alt
+          }
+          relationships {
+            field_image {
+              localFile {
+                url
+                childImageSharp {
+                  fluid(maxWidth: 400) {
+                      originalImg
+                      ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+            field_news_category {
+              drupal_id
+              id
+              name
+            }
+            field_tags {
+              __typename
+              ... on TaxonomyInterface {
+                drupal_id
+                id
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+	
     testimonials: allNodeTestimonial(sort: {fields: created}, filter: {fields: {tags: {in: [$id] }}}) {
       edges {
         node {
@@ -771,6 +799,5 @@ export const query = graphql`
 		}
       }
     }
-	
   }
 `
