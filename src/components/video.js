@@ -22,7 +22,7 @@ function Video (props) {
 					let videoTranscript = ((transcriptFile !== null) ? transcriptFile : (transcriptURL !== null) ? transcriptURL : null);
 					let transcriptLink = (videoTranscript !== null ? <p><a href={videoTranscript}>Transcript</a></p> : null);
 					
-					return <React.Fragment key={video.drupal_id}>
+					return <React.Fragment key={video.node.drupal_id}>
 					<div className="col-sm-6 content-area">
 						<div className="embed-responsive embed-responsive-16by9">
 						<iframe
