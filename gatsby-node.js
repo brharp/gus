@@ -405,7 +405,7 @@ exports.onCreateNode = ({ node, createNodeId, actions }) => {
       node.internal.type === `node__employer` || 
       node.internal.type === `node__testimonial` ||
 	  node.internal.type === `node__video`)
-    ) {
+     {
 
     createNodeField({
       node,
