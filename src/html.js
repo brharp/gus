@@ -15,6 +15,15 @@ export default function HTML(props) {
         {props.headComponents}
         <script defer src="/UofGHeader.js"></script>
         <link rel="stylesheet" href="/UofGHeader.css"></link>
+        {/* <script defer src='/mediaelement-and-player-dist.js'></script>
+        <script defer src='/vimeo.min.js'></script>
+        <script defer src='/transcript-link.js'></script> */}
+        {/* <link rel="stylesheet" href='/mediaelementplayer.dist.css'></link> */}
+        <script defer src='https://www.uoguelph.ca/js/mediaelement-and-player-dist.js'></script>
+        <script defer src='https://www.uoguelph.ca/js/vimeo.min.js'></script>
+        <script defer src='https://www.uoguelph.ca/js/transcript-link.js'></script>
+        <link rel="stylesheet" href='https://www.uoguelph.ca/css/mediaelementplayer.dist.css'></link>
+
       </head>
       <body {...props.bodyAttributes}>
         <SkipLink mainContent="#content"/>

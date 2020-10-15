@@ -255,7 +255,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type node__testimonial implements Node {
         drupal_id: String
-        drupal_internal__tid: Int
+        drupal_internal__nid: Int
         title: String
         body: BodyFieldWithSummary
         field_testimonial_person_desc: String
@@ -270,6 +270,22 @@ exports.createSchemaCustomization = ({ actions }) => {
       field_image: file__file @link(from: "field_image___NODE")
       field_tags: [relatedTaxonomyUnion] @link(from: "field_tags___NODE")
     }    
+    type node__video implements Node {
+      drupal_id: String
+      title: String
+      field_video_id: String
+      field_video_src: String
+      field_video_transcript_url: String
+      relationships: node__videoRelationships
+      fields: node__videoFields
+    }
+    type node__videoFields implements Node {
+        tags: [String]
+      }
+    type node__videoRelationships implements Node {
+      field_tags: [relatedTaxonomyUnion] @link(from: "field_tags___NODE")
+      field_video_transcript_file: file__file @link(from: "field_video_transcript_file___NODE")
+    }
 
 	type paragraph__general_text implements Node {
       drupal_id: String

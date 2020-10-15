@@ -1,5 +1,6 @@
 import CallToAction from '../components/callToAction';
 import Careers from '../components/careers';
+import ClientOnly from '../components/clientOnly';
 import Courses from '../components/courses';
 import Degrees from '../components/degrees';
 import Employers from '../components/employers';
@@ -16,6 +17,9 @@ import SVG from 'react-inlinesvg';
 import Tags from '../components/tags';
 import Testimonials from '../components/testimonial';
 import Variants from '../components/variants';
+import Video from '../components/video';
+import VideoReact from '../components/videoReact'
+import VideoTest from '../components/videoTest'
 import { contentIsNullOrEmpty, sortLastModifiedDates } from '../utils/ug-utils';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
@@ -330,6 +334,7 @@ export default ({data, location}) => {
   let tagData;
   let testimonialData;
   let variantData;
+  let videoData;
   
 	// set data
   if (data.careers.edges[0] !== undefined) { careerData = data.careers.edges; }
@@ -341,6 +346,7 @@ export default ({data, location}) => {
     if (progData.relationships.field_courses !== undefined) { courseData = progData.relationships.field_courses; }
     if (progData.relationships.field_program_statistics !== undefined) { statsData = progData.relationships.field_program_statistics; }
   if (data.testimonials.edges[0] !== undefined) { testimonialData = data.testimonials.edges; }
+  if (data.videos.edges[0] !== undefined) { videoData = data.videos.edges; }
 
 	// set program details
 	const title = progData.title;
@@ -429,6 +435,63 @@ export default ({data, location}) => {
       {testimonialData && 
         <Testimonials testimonialData={testimonialData} heading={testimonialHeading} headingLevel='h3' />
       }
+
+      {/* /*** Videos ****/ }
+      <div className="container page-container video">
+        <section className="row row-with-vspace site-content">
+          <div className="col-md-12 content-area">
+            <h2>Program Videos</h2>
+            <a className="video-watch-all" href="#">Watch All Videos<span className="chevron"></span></a>
+          </div>
+
+          {/* <div className="col-sm-4 content-area">
+            <div className="embed-responsive embed-responsive-16by9"> */}
+              {/* {videoData &&  */
+                // <Video id="player1"
+                //   mediaType="video"
+                //   preload="none"
+                //   controls
+                //   width="640"
+                //   height="360"
+                //   poster=""
+                //   sources={JSON.stringify([
+                //     {src: 'https://www.youtube.com/watch?v=efdRXSIc9NI', type: 'youtube'}
+                //   ])}
+                //   options={JSON.stringify({})}
+                //   tracks={JSON.stringify({})} />
+              }
+            {/* </div>
+          </div> */}
+
+          {/* <div className="col-sm-4 content-area"> */}
+            {/* <div class="embed-responsive embed-responsive-16by9"> */}
+            {/* <ClientOnly>
+              <VideoTest />
+            </ClientOnly> */}
+            {/* </div> */}
+          {/* </div> */}
+
+          <div className="col-sm-6 content-area">
+            {/* <div className="embed-responsive embed-responsive-16by9"> */}
+                {/* <video className="embed-responsive-item" width="100%" id="player2" controls="controls">
+                    <source type="video/youtube" src="https://www.youtube.com/watch?v=efdRXSIc9NI" />
+                    <track label="English" kind="subtitles" srcLang="en" src="youtube-captions.vtt" default />
+                </video> */}
+
+                <VideoReact
+                      ref={null}
+                      title={'test title'}
+                      url={'https://www.youtube.com/watch?v=efdRXSIc9NI'}
+                      transcriptFile={null}
+                      loop={false}
+                      autoplay={false}
+                    />
+
+            {/* </div> */}
+          </div>
+
+      </section>
+      </div>
 
       { /*** News ****/}
       {newsData && 
@@ -745,6 +808,33 @@ export const query = graphql`
                 drupal_id
                 id
                 name
+              }
+            }
+          }
+        }
+      }
+    }
+
+    videos: allNodeVideo(filter: {fields: {tags: {in: [$id] }}}) {
+      edges {
+        node {
+          drupal_id
+          title
+          field_video_id
+          field_video_src
+          field_video_transcript_url
+          relationships {
+            field_tags {
+               __typename
+              ... on TaxonomyInterface {
+              drupal_id
+                id
+                name
+              }
+            }
+            field_video_transcript_file {
+              localFile {
+                publicURL
               }
             }
           }
