@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactPlayer from 'react-player'
 import Duration from './duration'
-// import { UncontrolledTooltip } from 'reactstrap'
-// import { MdPlayArrow, MdPause, MdReplay, MdDescription } from 'react-icons/md'
 import '../styles/video.css'
 
 /* 

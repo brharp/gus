@@ -17,9 +17,7 @@ import SVG from 'react-inlinesvg';
 import Tags from '../components/tags';
 import Testimonials from '../components/testimonial';
 import Variants from '../components/variants';
-import Video from '../components/video';
 import VideoReact from '../components/videoReact'
-import VideoTest from '../components/videoTest'
 import { contentIsNullOrEmpty, sortLastModifiedDates } from '../utils/ug-utils';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
@@ -444,40 +442,8 @@ export default ({data, location}) => {
             <a className="video-watch-all" href="#">Watch All Videos<span className="chevron"></span></a>
           </div>
 
-          {/* <div className="col-sm-4 content-area">
-            <div className="embed-responsive embed-responsive-16by9"> */}
-              {/* {videoData &&  */
-                // <Video id="player1"
-                //   mediaType="video"
-                //   preload="none"
-                //   controls
-                //   width="640"
-                //   height="360"
-                //   poster=""
-                //   sources={JSON.stringify([
-                //     {src: 'https://www.youtube.com/watch?v=efdRXSIc9NI', type: 'youtube'}
-                //   ])}
-                //   options={JSON.stringify({})}
-                //   tracks={JSON.stringify({})} />
-              }
-            {/* </div>
-          </div> */}
-
-          {/* <div className="col-sm-4 content-area"> */}
-            {/* <div class="embed-responsive embed-responsive-16by9"> */}
-            {/* <ClientOnly>
-              <VideoTest />
-            </ClientOnly> */}
-            {/* </div> */}
-          {/* </div> */}
-
           <div className="col-sm-6 content-area">
             {/* <div className="embed-responsive embed-responsive-16by9"> */}
-                {/* <video className="embed-responsive-item" width="100%" id="player2" controls="controls">
-                    <source type="video/youtube" src="https://www.youtube.com/watch?v=efdRXSIc9NI" />
-                    <track label="English" kind="subtitles" srcLang="en" src="youtube-captions.vtt" default />
-                </video> */}
-
                 <VideoReact
                       ref={null}
                       title={'test title'}
@@ -486,7 +452,6 @@ export default ({data, location}) => {
                       loop={false}
                       autoplay={false}
                     />
-
             {/* </div> */}
           </div>
 
