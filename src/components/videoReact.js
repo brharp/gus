@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player'
 import Duration from './duration'
 // import { UncontrolledTooltip } from 'reactstrap'
 // import { MdPlayArrow, MdPause, MdReplay, MdDescription } from 'react-icons/md'
-// import '../styles/video.css'
+import '../styles/video.css'
 
 /* 
 @todo - UPDATE THIS EXAMPLE
@@ -28,13 +28,15 @@ class VideoReact extends Component {
     firstLoad: true,
     isOverlayOpen: false,
     loop: false,
+    played: 0,
     playing: false,
     toolTipMsg: 'Play',
     videoRendered: false,
   }
   load = url => {
     this.setState({
-      url
+      url,
+      played: 0,
     })
   }
   renderVideoStatus = () => {
@@ -55,6 +57,24 @@ class VideoReact extends Component {
   handleDuration = (duration) => {
     console.log('onDuration', duration)
     this.setState({ duration })
+  }
+
+  handleProgress = state => {
+    console.log('onProgress', state)
+    // We only want to update time slider if we are not currently seeking
+    if (!this.state.seeking) {
+      this.setState(state)
+    }
+  }
+  handleSeekMouseDown = e => {
+    this.setState({ seeking: true })
+  }
+  handleSeekChange = e => {
+    this.setState({ played: parseFloat(e.target.value) })
+  }
+  handleSeekMouseUp = e => {
+    this.setState({ seeking: false })
+    this.player.seekTo(parseFloat(e.target.value))
   }
 
   handleVideoPause = () => {
@@ -89,7 +109,7 @@ class VideoReact extends Component {
     this.player = player
   } 
   render () {
-    const { playing, duration } = this.state
+    const { duration, playing, played } = this.state
    
     // Avoid tabbing into iframe and remove deprecated frameborder attribute
     if (typeof document !== `undefined`) {
@@ -123,6 +143,8 @@ class VideoReact extends Component {
                 onPause={this.onPause}
                 onEnded={this.onEnded}
                 onDuration={this.handleDuration}
+                onProgress={this.handleProgress}
+                onSeek={e => console.log('onSeek', e)}
                 />   
 
                 {this.state.videoRendered && this.renderVideoStatus()}
@@ -141,10 +163,23 @@ class VideoReact extends Component {
                     }
         
                     <div className="mejs__time mejs__currenttime-container" role="timer" aria-live="off">
-                        <span className="mejs__currenttime">00:00</span>
+                        <span className="mejs__currenttime">{played.toFixed(2)}</span>
                     </div>
+
+
+                    
                     <div className="mejs__time-rail">
-                        <span className="mejs__time-total mejs__time-slider">
+                        <input
+                          type='range' min={0} max={0.999999} step='any'
+                          value={played}
+                          onMouseDown={this.handleSeekMouseDown}
+                          onChange={this.handleSeekChange}
+                          onMouseUp={this.handleSeekMouseUp}
+                        />
+                        
+                        <progress className="mejs__time-total mejs__time-slider" max={1} value={played} />
+
+                        {/* <span className="mejs__time-total mejs__time-slider">
                             <span className="mejs__time-buffering" style={{display:'none'}}></span>
                             <span className="mejs__time-loaded"></span>
                             <span className="mejs__time-current"></span>
@@ -156,7 +191,7 @@ class VideoReact extends Component {
                                 <span className="mejs__time-float-current">00:00</span>
                                 <span className="mejs__time-float-corner"></span>
                             </span>
-                        </span>
+                        </span> */}
                     </div>
                     <div className="mejs__time mejs__duration-container">
                         <span className="mejs__duration"><Duration seconds={duration} /></span>
