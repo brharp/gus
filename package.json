@@ -25,6 +25,7 @@
     "gatsby-source-filesystem": "^2.3.11",
     "gatsby-source-instagram": "^0.8.0",
     "gatsby-transformer-sharp": "^2.5.5",
+    "imagemin-pngquant": "^5.0.1",
     "is-subset": "^0.1.1",
     "moment-timezone": "^0.5.31",
     "react": "^16.13.1",
