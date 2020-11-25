@@ -269,8 +269,26 @@ exports.createSchemaCustomization = ({ actions }) => {
     type node__pageRelationships implements Node {
       field_hero_image: media__image @link(from: "field_hero_image___NODE")
       field_related_content: [paragraph__related_content] @link(from: "field_related_content___NODE")
+      field_links: [paragraph__links_items] @link(from:"field_links___NODE")
       field_tags: [relatedTaxonomyUnion] @link(from: "field_tags___NODE")
     }
+
+    type paragraph__links_items implements Node {
+      drupal_id: String
+      field_link_description: String
+      field_link_url: node__link_url
+      relationships: paragraph__links_itemsRelationships
+      
+    }
+    
+    type paragraph__links_itemsRelationships implements Node {
+      field_link_image: media__image @link(from: "field_link_image___NODE")
+    }
+    type node__link_url implements Node {
+      title: String
+      uri: String
+    }
+
     type node__program implements Node {
       drupal_id: String
       drupal_internal__nid: Int

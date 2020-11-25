@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import SEO from '../components/seo';
 import Hero from '../components/hero';
 import RelatedPages from '../components/relatedPages';
+import LinksItems from '../components/linksitems';
 import { graphql } from 'gatsby';
 
 export default ({data}) => {
@@ -13,9 +14,12 @@ export default ({data}) => {
 	const body = (pageData.body !== null ? pageData.body.processed:``);
 	const imageData = data.images.edges;
 	let relatedPageData;
+	var linksData;
+
 
 	if (pageData.relationships.field_related_content !== undefined) { relatedPageData = pageData.relationships.field_related_content; }
-	
+	if (pageData.relationships.field_links !== undefined) { linksData = pageData.relationships.field_links; }
+
 	return (
 		<Layout>
 			<Helmet bodyAttributes={{
@@ -43,6 +47,8 @@ export default ({data}) => {
 				</div>
 			</div>
 			
+			{ /**** Links Items conent ****/}
+			<LinksItems pageData={linksData} displayType={'grid'}/>
 		</Layout>
 	)
 	
@@ -80,6 +86,31 @@ export const query = graphql`
 				}
 			  }
 
+			field_links {
+				drupal_id
+				field_link_description
+				field_link_url {
+					title
+					uri
+					}
+					relationships {
+						field_link_image {
+						relationships {
+							field_media_image {
+							localFile {
+								childImageSharp {
+								resize(width: 400, height: 300, cropFocus: CENTER) {
+									src
+								}
+								}
+							}
+							}
+						}
+						}
+					}
+			}
+
+			
 			field_tags {
 			  __typename
 				... on TaxonomyInterface {
